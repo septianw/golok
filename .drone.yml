@@ -4,4 +4,4 @@ build:
     - go get
     - go build
     - go test -cover -v -coverprofile=coverage.txt -covermode=atomic
-    - curl -sSL https://codecov.io/bash | bash
+    - curl -sSL https://codecov.io/bash | bash -t $$CODECOV_TOKEN
