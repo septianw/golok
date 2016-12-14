@@ -1,7 +1,5 @@
 build:
   image: golang
-  environment:
-    - CODECOV_TOKEN=$$CODECOV_TOKEN
   commands:
     - go get
     - go build
