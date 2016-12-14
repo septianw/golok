@@ -8,10 +8,4 @@ pipelines:
   default:
     - step:
         script:
-          - echo $GOPATH
-          - export GOPATH=/opt/atlassian/pipelines/
-          - ls $GOPATH
-          - ls /opt/atlassian/pipelines/agent/build
-          - go get
-          - go build
-          - go test -v
+          - bitbucket-pipelines.sh
