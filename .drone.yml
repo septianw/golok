@@ -6,4 +6,4 @@ build:
     - go get
     - go build
     - go test -cover -v -coverprofile=coverage.txt -covermode=atomic
-    - bash <(curl -s https://codecov.io/bash)
+    - /bin/bash <(curl -s https://codecov.io/bash)
