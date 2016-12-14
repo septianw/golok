@@ -8,6 +8,4 @@ pipelines:
   default:
     - step:
         script:
-          - go get
-          - go build
-          - go test -v
+          - bash -x ./bitbucket-pipelines.sh
