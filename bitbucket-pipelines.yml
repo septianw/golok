@@ -8,6 +8,7 @@ pipelines:
   default:
     - step:
         script:
+          - echo $GOPATH
           - go get
           - go build
           - go test -v
