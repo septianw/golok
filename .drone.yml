@@ -1,6 +1,9 @@
 build:
   image: golang
+  environment:
+    - CODECOV_TOKEN: $$CODECOV_TOKEN
   commands:
     - go get
     - go build
-    - go test -v -cover
+    - go test -cover -v -coverprofile=coverage.txt -covermode=atomic
+    - bash <(curl -s https://codecov.io/bash)
