@@ -9,7 +9,7 @@ mv *.go src/bitbucket.org/septianw/golok
 cd src/bitbucket.org/septianw/golok
 go get
 go build
-go test -v
+go test -v -cover
 if [[ $? -eq 0 ]]
 then
   GOPATH=$OGOPATH
