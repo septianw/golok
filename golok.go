@@ -1,12 +1,13 @@
 package golok
 
 import (
+	//	"fmt"
 	"io/ioutil"
-	"net/http"
 	"os"
+	//	"reflect"
 	"strings"
 
-	"gopkg.in/inconshreveable/log15.v2"
+	"github.com/septianw/log15"
 )
 
 var Loglevel string
@@ -21,10 +22,6 @@ const WARN = log15.LvlWarn
 const INFO = log15.LvlInfo
 const DEBUG = log15.LvlDebug
 const ALL = DEBUG
-
-const TEXT uint8 = 1
-const JSON uint8 = 2
-const XML uint8 = 3
 
 type logConfig struct {
 	level           log15.Lvl
@@ -123,9 +120,19 @@ func Writelog(tipe string, message string, ctx ...interface{}) {
 			log15.LvlFilterHandler(log15.LvlError, log15.StreamHandler(os.Stderr, log15.TerminalFormat()))))
 	}
 
+	if len(ctx)%2 != 0 {
+		ctx = append(ctx, nil)
+	}
+
+	for i, ct := range ctx {
+		if (i%2 == 0) && (ct == nil) {
+			ctx[i] = "nil"
+		}
+	}
+
 	switch tipe {
 	case "info":
-		Log.Info(message)
+		Log.Info(message, ctx)
 	case "warn":
 		Log.Warn(message, ctx)
 	case "error":
