@@ -8,4 +8,4 @@ pipelines:
   default:
     - step:
         script:
-          - bitbucket-pipelines.sh
+          - bash -x ./bitbucket-pipelines.sh
