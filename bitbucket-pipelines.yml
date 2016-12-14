@@ -9,7 +9,7 @@ pipelines:
     - step:
         script:
           - echo $GOPATH
-          - export $GOPATH=/opt/atlassian/pipelines/
+          - export GOPATH=/opt/atlassian/pipelines/
           - ls $GOPATH
           - ls /opt/atlassian/pipelines/agent/build
           - go get
