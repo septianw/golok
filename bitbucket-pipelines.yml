@@ -9,6 +9,8 @@ pipelines:
     - step:
         script:
           - echo $GOPATH
+          - ls $GOPATH
+          - ls /opt/atlassian/pipelines/agent/build
           - go get
           - go build
           - go test -v
