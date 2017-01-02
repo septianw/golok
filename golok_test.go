@@ -201,7 +201,7 @@ func TestWritelog(t *testing.T) {
 	t.Log(oddtest)
 
 	var niltest = CaptureOutput(func() {
-		Writelog("debug", "Test odd parameter", nil, "value", nil, "value again")
+		Writelog("debug", "Test odd parameter", "", "value", "", "value again")
 	})
 	t.Log(niltest)
 
