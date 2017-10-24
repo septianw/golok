@@ -128,8 +128,7 @@ func Writelog(tipe string, message string, ctx ...interface{}) {
 	for i, ct := range ctx {
 		if (i%2 == 0) && (ct == nil) {
 			ctx[i] = "nil"
-		}
-		if (i%2 == 0) && (reflect.TypeOf(ct).Kind() == reflect.Float64) {
+		} else if (i%2 == 0) && (reflect.TypeOf(ct).Kind() == reflect.Float64) {
 			ctx[i] = strconv.Itoa(int(ct.(float64)))
 		}
 	}
